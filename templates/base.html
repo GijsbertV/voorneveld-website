@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if noindex %}<meta name="robots" content="noindex, nofollow">
+  {% endif %}<title>{{ title }} · Voorneveld Consulting</title>
+  <link rel="stylesheet" href="{{ root }}static/style.css">
+  <link rel="icon" type="image/png" href="{{ root }}static/favicon.png">
+  <link rel="apple-touch-icon" href="{{ root }}static/icon-180.png">
+</head>
+<body>
+  <header class="topbar">
+    <a href="{{ home }}"><img class="logo" src="{{ root }}static/logo.png" alt="Voorneveld Consulting, naar home"></a>
+    <nav class="menu" aria-label="Hoofdmenu">
+      {% for item in menu %}
+      <a href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
+    </nav>
+  </header>
+  <main>
+{% block content %}{% endblock %}
+{% if not hide_cta %}
+  <section class="contact">
+    <h2>Zullen we kennismaken?</h2>
+    <p>
+      Heb je een vraagstuk dat vastzit, of een ambitie die je wilt waarmaken? Ik denk graag
+      met je mee. Een eerste gesprek is vrijblijvend.
+    </p>
+    <a class="button" href="{{ root }}contact/index.html">Neem contact op</a>
+  </section>
+{% endif %}
+  </main>
+  <footer class="footer">
+    <p>Voorneveld Consulting, Vianen</p>
+    {% if noindex %}<p>Conceptversie</p>{% endif %}
+  </footer>
+</body>
+</html>
