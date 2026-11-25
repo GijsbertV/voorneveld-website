@@ -1,71 +1,59 @@
 {% extends "base.html" %}
 {% block content %}
-  <section class="hero">
-    <p class="eyebrow"><span class="dot red"></span>Gijsbert Voorneveld · adviseur en projectleider</p>
-    <h1>Ik laat de bal het werk doen: de juiste mensen, de goede vragen, concrete stappen.</h1>
-    <a class="button" href="{{ root }}contact/index.html">Kennismaken</a>
-  </section>
+<section class="hero">
+  <div>
+    <p class="eyebrow">Gijsbert Voorneveld · management consultant en projectleider, thuis in de media</p>
+    <h1>Een onafhankelijke en eenvoudig te begrijpen analyse creëert de voorwaarden voor succes<span class="ball" aria-hidden="true"></span></h1>
+    <p class="aside">Het tegenovergestelde is ook waar.</p>
+    <p class="lead">Ik help organisaties bij het voorbereiden en doorvoeren van organisatiebrede veranderingen.</p>
+    <a class="button" href="contact/index.html">Kennismaken</a>
+  </div>
+  <img class="portrait" src="static/photos/portrait.jpg" width="900" height="1200" alt="Gijsbert Voorneveld">
+</section>
 
-  <section class="block">
-    <p class="eyebrow"><span class="dot"></span>Hoe ik werk</p>
-    <h2>Ik breng beweging op gang: met goede vragen en concrete stappen.</h2>
-    <p>
-      Veel vraagstukken en ambities lopen vast omdat het niet duidelijk is wat het
-      probleem of doel precies is. Ik help dat scherp te krijgen. Daarna vertaal ik de visie naar
-      concrete stappen en denk ik de gevolgen vooraf door, zodat iedereen van werkvloer
-      tot directie betrokken wordt waar en wanneer dat nodig is. Ik kom tot resultaat
-      zonder grote budgetten of zware rapporten.
-    </p>
-  </section>
-
-  <section class="block wide">
-    <p class="eyebrow"><span class="dot"></span>Waarmee ik je help</p>
-    <p class="intro">
-      Of het nu gaat om een vastgelopen vraagstuk of een nieuwe ambitie: ik help je van de
-      eerste vraag naar resultaat. Afhankelijk van wat de situatie vraagt, doe ik dat als
-      adviseur of projectleider.
-    </p>
+<section class="band">
+  <div class="inner">
+    <h2>Waarmee ik help</h2>
     <div class="cards">
-      <article class="card">
-        <span class="number">1</span>
-        <h3>Van vraagstuk of ambitie naar resultaat</h3>
-        <p>
-          Ik breng in kaart wat er echt speelt, maak er een helder plan van en zorg dat de eerste
-          stappen gezet worden.
-        </p>
-        <p><a href="{{ root }}diensten/index.html#resultaat">Lees meer<span class="sr"> over Van vraagstuk of ambitie naar resultaat</span></a></p>
-      </article>
-      <article class="card">
-        <span class="number">2</span>
-        <h3>Samenwerking die werkt</h3>
-        <p>
-          Ik begeleid workshops en projecten waarin iedereen kan bijdragen en de uitkomst gedragen
-          wordt.
-        </p>
-        <p><a href="{{ root }}diensten/index.html#samenwerking">Lees meer<span class="sr"> over Samenwerking die werkt</span></a></p>
-      </article>
-      <article class="card">
-        <span class="number">3</span>
-        <h3>Coaching en intervisie</h3>
-        <p>
-          Met helpende en verdiepende vragen ontdekken professionals en teams zelf wat werkt.
-        </p>
-        <p><a href="{{ root }}diensten/index.html#coaching">Lees meer<span class="sr"> over Coaching en intervisie</span></a></p>
-      </article>
+      {% for s in services %}
+      <a class="card" href="diensten/index.html#{{ s.id }}">
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.short }}</p>
+      </a>
+      {% endfor %}
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="block">
-    <p class="eyebrow"><span class="dot"></span>Waarom ik dit doe</p>
-    <p class="lead">
-      Ik geloof dat organisaties pas echt vooruitkomen als de mensen erin dat ook doen.
-    </p>
-    <p>
-      Als mensen zich ontwikkelen, groeit de organisatie mee, en worden ze er vaak ook
-      gelukkiger van. De beste resultaten ontstaan als je de juiste mensen bij elkaar
-      brengt, zodat ze elkaar verder helpen. Daarbij ga ik zuinig om met tijd, geld en
-      energie: ik kijk eerst wat er al is en wat echt nodig is. En ik laat graag zien dat
-      een doel stellen én halen voor iedereen mogelijk is.
-    </p>
-  </section>
+<section class="inner text">
+  <h2>Hoe ik werk</h2>
+  <p>In korte tijd breng ik de invalshoeken, belangen en bezwaren van afdelingen en personen in kaart en bepaal ik de kritische succesfactoren.</p>
+  <p>Ik creëer draagvlak door mensen te betrekken op een manier die hen aanspreekt, en door te laten zien wat er straks mogelijk is.</p>
+  <p>Ik werk zo transparant mogelijk: vooraf begrijpt iedereen wat er van hem of haar wordt gevraagd. Zo gaan veranderingen snel en worden ze breed geaccepteerd.</p>
+</section>
+
+<section class="band">
+  <div class="inner">
+    <h2>Uit de praktijk</h2>
+    <div class="cards">
+      {% for c in cases[:2] %}
+      <a class="card" href="cases/index.html#{{ c.id }}">
+        <p class="result">{{ c.result }}</p>
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.client }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="inner">
+  <h2>Voor wie ik werkte</h2>
+  <ul class="logos">
+    {% for c in clients[:7] %}
+    <li><img src="static/logos/{{ c.logo }}" alt="{{ c.name }}" loading="lazy"></li>
+    {% endfor %}
+  </ul>
+  <p><a href="cases/index.html#opdrachtgevers">Alle opdrachtgevers</a></p>
+</section>
 {% endblock %}

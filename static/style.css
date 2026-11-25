@@ -1,198 +1,104 @@
-/* Colours taken from the Voorneveld Consulting logo. */
+/* Blue and red come from the Voorneveld Consulting logo. */
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("fonts/source-sans-3.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+}
 :root {
-  --bg: #ffffff;
-  --soft: #f4f6f9;
+  --bg: #faf8f5;
+  --soft: #f1ede7;
   --text: #1f2329;
-  --muted: #5f6b78;
+  --muted: #5a636e;
   --blue: #00508a;
   --red: #d90a1a;
-  --border: #e3e7ec;
+  --line: #e2dcd3;
 }
-
 * { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-/* Header and footer */
-.topbar {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
-  max-width: 64rem;
-  margin: 0 auto;
-  padding: 1.5rem 1rem;
-}
-
-.logo { height: 2.25rem; width: auto; display: block; }
-
-.badge {
-  font-size: 0.8rem;
-  color: var(--muted);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.15rem 0.7rem;
-}
-
-.footer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem 1rem;
-  max-width: 64rem;
-  margin: 0 auto;
-  padding: 2rem 1rem 3rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.footer p { margin: 0; }
-
-main { padding: 0 1rem; }
-
-/* Sections: text blocks stay narrow for easy reading, card blocks may be wider. */
-.hero, .block, .contact {
-  max-width: 46rem;
-  margin: 0 auto;
-}
-
-.block.wide { max-width: 64rem; }
-
-.hero { padding: 4rem 0 3rem; }
-
-.hero h1 {
-  margin: 0;
-  font-size: clamp(1.9rem, 5vw, 2.9rem);
-  line-height: 1.2;
-  font-weight: 650;
-  letter-spacing: -0.01em;
-}
-
-.block {
-  padding: 3rem 0;
-  border-top: 1px solid var(--border);
-}
-
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin: 0 0 1rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--blue);
-}
-
-.hero .eyebrow { color: var(--muted); letter-spacing: 0.04em; text-transform: none; font-size: 0.95rem; }
-
-/* The dots from the logo; the red one is "the ball". */
-.dot {
-  flex: none;
-  width: 0.7rem;
-  height: 0.7rem;
-  border-radius: 50%;
-  background: var(--blue);
-}
-
-.dot.red { background: var(--red); }
-
-h2 {
-  margin: 0 0 1rem;
-  font-size: 1.6rem;
-  line-height: 1.3;
-  color: var(--blue);
-}
-
-h3 { margin: 0 0 0.5rem; font-size: 1.1rem; line-height: 1.35; }
-
-.lead, .intro { font-size: 1.2rem; }
-.lead { font-weight: 600; margin-bottom: 0.75rem; }
-.intro { max-width: 46rem; }
-
-.muted { color: var(--muted); }
-
-/* Cards: one column on a phone, three next to each other on a laptop. */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-  gap: 1.25rem;
-  margin-top: 1.5rem;
-}
-
-.card {
-  background: var(--soft);
-  border-radius: 10px;
-  padding: 1.5rem;
-}
-
-.card p { margin: 0; }
-
-.number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  margin-bottom: 0.75rem;
-  border-radius: 50%;
-  background: var(--blue);
-  color: #fff;
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-
-/* Closing block */
-.contact {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 2.5rem 2rem;
-  background: var(--blue);
-  color: #fff;
-  border-radius: 12px;
-}
-
-.contact h2 { color: #fff; }
-
-/* Menu */
-.menu { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
-.menu a { color: var(--text); text-decoration: none; padding: 0.25rem 0; border-bottom: 2px solid transparent; }
-.menu a:hover { color: var(--blue); }
-.menu a[aria-current] { color: var(--blue); border-bottom-color: var(--red); }
-
+html { scroll-padding-top: 1rem; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 1.125rem/1.6 "Source Sans 3", system-ui, sans-serif; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: var(--blue); }
 a:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+.skip { position: absolute; left: -999rem; }
+.skip:focus { left: 1rem; top: 1rem; background: #fff; padding: .5rem 1rem; z-index: 1; }
 
-.button {
-  display: inline-block;
-  padding: 0.65rem 1.3rem;
-  border-radius: 6px;
-  background: var(--blue);
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-}
-.button:hover { filter: brightness(1.15); }
-.hero .button { margin-top: 1.75rem; }
-.contact .button { background: #fff; color: var(--blue); }
+.topbar, .footer, .inner, .hero { max-width: 68rem; margin: 0 auto; padding-left: 1.25rem; padding-right: 1.25rem; }
+.topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.logo { height: 2.5rem; width: auto; mix-blend-mode: multiply; }
+.menu { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem 1.5rem; }
+.menu a { color: var(--text); text-decoration: none; padding: .4rem 0; border-bottom: 2px solid transparent; }
+.menu a:hover { color: var(--blue); }
+.menu a[aria-current] { color: var(--blue); border-bottom-color: var(--red); }
+.menu a:last-child { padding: .4rem 1rem; border: 0; border-radius: 6px; background: var(--blue); color: #fff; }
 
-.card p + p { margin-top: 0.75rem; }
-.page-intro { padding-bottom: 2rem; }
-.block h3 { margin-top: 1.75rem; }
+.hero { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3.5rem; align-items: center; padding-top: 3rem; padding-bottom: 4.5rem; }
+.portrait { width: 100%; border-radius: 12px; }
+h1, h2, h3 { line-height: 1.2; text-wrap: balance; }
+h1 { margin: 0 0 1rem; font-size: clamp(2rem, 4.4vw, 2.9rem); font-weight: 650; letter-spacing: -.01em; }
+h2 { margin: 0 0 1.25rem; font-size: 1.75rem; color: var(--blue); }
+h3 { margin: 1.5rem 0 .25rem; font-size: 1.2rem; }
+p { margin: 0 0 1rem; }
+.ball { display: inline-block; width: .3em; height: .3em; margin-left: .12em; border-radius: 50%; background: var(--red); }
+.eyebrow { color: var(--muted); font-weight: 600; margin-bottom: .75rem; }
+.aside { color: var(--muted); font-style: italic; }
+.lead { font-size: 1.3rem; line-height: 1.45; }
+.muted { color: var(--muted); }
+.center { text-align: center; }
+
+.inner { padding-top: 4rem; padding-bottom: 4rem; }
+.text > * { max-width: 42rem; }
+.band { background: var(--soft); }
+.page-intro { padding-bottom: 2.5rem; }
+.case .inner { padding-top: 2.75rem; padding-bottom: 2.25rem; }
+.case .eyebrow { margin-bottom: .25rem; }
+.case h2 { margin-bottom: 1rem; }
+.columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); gap: 1rem 2.5rem; }
+.columns h3 { margin-top: 0; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr)); gap: 1.25rem; }
+.card { padding: 1.75rem; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--text); text-decoration: none; }
+a.card:hover { border-color: var(--blue); }
+a.card h3 { color: var(--blue); }
 .card h3 { margin-top: 0; }
-.steps { margin: 0; padding-left: 1.3rem; }
-.steps li { margin-bottom: 0.3rem; }
-.example { margin-top: 1.75rem; }
-.details { font-style: normal; }
+.card p:last-child { margin: 0; }
+/* Services: cards that open for details. Each card grows on its own. */
+.services { align-items: start; }
+.services summary { display: flex; flex-direction: column; cursor: pointer; list-style: none; min-height: 9.5rem; }
+.services summary::-webkit-details-marker { display: none; }
+.services summary h3 { color: var(--blue); }
+.services summary:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+.services .card:hover { border-color: var(--blue); }
+.services .more { margin-top: auto; padding-top: 1rem; color: var(--blue); font-weight: 600; }
+.services .more::after { content: "Meer lezen +"; }
+.services [open] .more::after { content: "Minder lezen −"; }
+.services h4 { margin: 1.25rem 0 .25rem; font-size: 1.125rem; line-height: 1.2; }
 
-/* Only for screen readers */
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.result { font-size: 1.4rem; font-weight: 650; line-height: 1.25; margin-bottom: .5rem; }
+
+.logos { list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr)); gap: 1rem; }
+.logos li { display: flex; align-items: center; justify-content: center; height: 6rem; padding: 1rem; background: #fff; border-radius: 8px; }
+.logos img { width: 100%; height: 100%; object-fit: contain; }
+blockquote { margin: 2.5rem 0 0; padding-left: 1.25rem; border-left: 3px solid var(--red); font-size: 1.4rem; }
+.contact-intro { display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: center; }
+.avatar { width: 13rem; border-radius: 50%; }
+address { font-style: normal; line-height: 1.9; overflow-wrap: anywhere; }
+
+.button { display: inline-block; padding: .7rem 1.4rem; border-radius: 6px; background: var(--blue); color: #fff; font-weight: 600; text-decoration: none; }
+.button:hover { filter: brightness(1.15); }
+.cta { max-width: 65.5rem; margin: 3rem auto; padding: 3rem 2.5rem; background: var(--blue); color: #fff; border-radius: 12px; }
+.cta h2 { color: #fff; margin-bottom: .75rem; }
+.cta p { max-width: 42rem; }
+.cta .button { background: #fff; color: var(--blue); }
+.cta a:focus-visible { outline-color: #fff; }
+.footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; padding-top: 1rem; padding-bottom: 2.5rem; color: var(--muted); font-size: 1rem; }
+.footer p { margin: 0; }
+
+@media (max-width: 46rem) {
+  .hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 1rem; padding-bottom: 3rem; }
+  .portrait { max-width: 20rem; }
+  .inner { padding-top: 2.75rem; padding-bottom: 2.75rem; }
+  .cta { margin: 2rem 1.25rem; padding: 2rem 1.5rem; }
+  .menu { gap: .25rem 1.1rem; }
+  .logo { height: 2rem; }
+}
+@media (max-width: 24rem) { .menu { gap: .25rem .8rem; font-size: 1rem; } .menu a:last-child { padding: .35rem .7rem; } }

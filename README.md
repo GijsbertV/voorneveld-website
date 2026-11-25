@@ -3,7 +3,8 @@
 Static site: `build.py` turns the Jinja templates into plain HTML in `dist/`. Every push to
 `main` publishes it to GitHub Pages. This repository is public.
 
-- Texts: `templates/nl/`
+- Services, cases and clients: `content/nl.toml`
+- Other texts: `templates/nl/`
 - Menu, footer and contact block: `templates/base.html`
 - Styling and images: `static/`
 

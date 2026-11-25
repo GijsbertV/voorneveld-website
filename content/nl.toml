@@ -1,0 +1,99 @@
+# Services, cases and clients. Change them here; every page follows.
+
+[[services]]
+id = "fusies"
+title = "Fuseren en reorganiseren"
+short = "Van twee tot vier partijen naar één organisatie die werkt."
+when = "Een fusie vraagt om operationele integratie, of je organisatie moet anders worden ingericht. Er zijn veel belangen en de tijd is beperkt."
+experience = "Ik begeleidde fusies met twee tot vier partijen: van internationale bedrijven met voornamelijk Amerikaanse eigenaren tot Nederlandse organisaties met oud-ministers in de raad van toezicht."
+case = "Omroep"
+
+[[services]]
+id = "technologie"
+title = "Invoeren nieuwe technologie"
+short = "Nieuwe systemen en AI die mensen ook echt gebruiken."
+when = "Je voert een nieuw systeem in of wilt AI gaan gebruiken, en het werk van veel mensen verandert mee."
+experience = "Ik werkte aan de invoering van contentmanagement-, CRM- en financiële systemen bij telecom- en mediabedrijven: van één land met 30 gebruikers tot 50 landen met 5000 gebruikers."
+
+[[services]]
+id = "bedrijfsvoering"
+title = "Verbeteren bedrijfsvoering"
+short = "De juiste activiteiten, op de juiste plek, met minder fouten."
+when = "Processen duren te lang of leveren te veel fouten op, of het is de vraag waar een onderdeel het best kan zitten."
+experience = "Voor multinationals onderzocht ik de beste samenstelling en locatie van bedrijfsonderdelen, zoals financial shared services en quality assurance. Daarbij woog ik onder meer strategische, technische en fiscale kenmerken."
+case = "streaming"
+
+[[cases]]
+id = "Omroep"
+client = "Fusieomroep"
+title = "Drie omroepen worden één"
+result = "In een half jaar"
+situation = "Drie publieke omroepen gingen samen verder als één nieuwe omroep."
+action = "Ik begeleidde de fusie. In een half jaar moest een geheel nieuwe organisatie worden voorbereid, met goedkeuring van alle betrokken partijen."
+
+[[cases]]
+id = "streaming"
+client = "Internationaal streamingbedrijf"
+title = "Betere kwaliteit rond vertalingen"
+result = "98% in één keer goed"
+situation = "Een internationaal streamingbedrijf wilde dat materiaal vaker in één keer goed was. Het ging om de processen rond vertalingen."
+action = "Met de operationele afdelingen, samen zo'n 300 mensen, onderzochten we ruim 40 processen."
+outcome = "Het aandeel dat in één keer goed was steeg naar 98%. De werkdruk daalde sterk en klanten werden veel tevredener."
+
+[[cases]]
+id = "doorlooptijd"
+client = "Shared service center"
+title = "Van twee werkdagen naar een halve"
+result = "Vier keer zo snel"
+situation = "De verwerking van beeld- en geluidsmateriaal, inclusief controles, duurde twee werkdagen."
+action = "Stap voor stap bekeken we welke controles waarde toevoegden en welke niet."
+outcome = "De verwerkingstijd ging van twee werkdagen naar een halve. Zo kwam er meer tijd vrij voor klanten."
+
+[[clients]]
+name = "NPO"
+logo = "npo.png"
+[[clients]]
+name = "Disney"
+logo = "disney.jpg"
+[[clients]]
+name = "NEP"
+logo = "nep.jpg"
+[[clients]]
+name = "Beeld en Geluid"
+logo = "beeld-en-geluid.jpg"
+[[clients]]
+name = "ESPN"
+logo = "espn.png"
+[[clients]]
+name = "National Geographic"
+logo = "national-geographic.jpg"
+[[clients]]
+name = "BNNVARA"
+logo = "bnn.svg"
+[[clients]]
+name = "Eye"
+logo = "eye.png"
+[[clients]]
+name = "Liberty Global"
+logo = "liberty-global.svg"
+[[clients]]
+name = "Ziggo"
+logo = "ziggo.png"
+[[clients]]
+name = "KPN"
+logo = "kpn.png"
+[[clients]]
+name = "ING"
+logo = "ing.svg"
+[[clients]]
+name = "Dienst Justitiële Inrichtingen"
+logo = "dji.svg"
+[[clients]]
+name = "TU Delft"
+logo = "tu-delft.png"
+[[clients]]
+name = "The European Library"
+logo = "european-library.png"
+[[clients]]
+name = "SCIO Groep"
+logo = "scio.png"

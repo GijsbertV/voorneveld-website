@@ -1,46 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-  <section class="hero page-intro">
-    <p class="eyebrow"><span class="dot red"></span>Contact</p>
+<section class="inner page-intro contact-intro">
+  <img class="avatar" src="{{ root }}static/photos/portrait-square.jpg" width="600" height="600" alt="Gijsbert Voorneveld">
+  <div>
     <h1>Zullen we kennismaken?</h1>
-    <p class="intro">
-      Heb je een vraagstuk dat vastzit, of een ambitie die je wilt waarmaken? Ik denk graag
-      met je mee. Een eerste gesprek is vrijblijvend.
-    </p>
-  </section>
-
-  <section class="block wide">
-    <div class="cards">
-      <article class="card">
-        <h2>Koffie</h2>
-        <p>
-          Je bent van harte welkom in Vianen. De vrijdag probeer ik vrij te houden voor een
-          gesprek. Laat even weten wanneer je komt.
-        </p>
-      </article>
-      <article class="card">
-        <h2>Online</h2>
-        <p>
-          Een videogesprek is een snelle manier om kennis te maken. Ik gebruik meestal Zoom,
-          maar een ander programma kan ook.
-        </p>
-      </article>
-      <article class="card">
-        <h2>Op locatie</h2>
-        <p>
-          Ik kom ook graag naar jou toe, zeker als er meer mensen bij het gesprek zijn.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section class="block">
-    <address class="details">
-      <strong>Gijsbert Voorneveld</strong> · Voorneveld Consulting, Vianen<br>
+    <p class="lead">Een eerste gesprek is vrijblijvend.</p>
+    <address>
       <a href="mailto:gijsbert@voorneveldconsulting.nl">gijsbert@voorneveldconsulting.nl</a><br>
       <a href="tel:+31616839021">+31 6 16 83 90 21</a><br>
       <a href="https://www.linkedin.com/in/gijsbertvoorneveld">linkedin.com/in/gijsbertvoorneveld</a>
     </address>
-    <p class="muted">KvK 75477963 · btw NL001963980B78</p>
-  </section>
+  </div>
+</section>
+<section class="band">
+  <div class="inner">
+    <h2>Drie manieren</h2>
+    <div class="cards">
+      <div class="card"><h3>Koffie</h3><p>Je bent van harte welkom in Vianen. De vrijdag probeer ik vrij te houden voor een gesprek. Laat even weten wanneer je komt.</p></div>
+      <div class="card"><h3>Online</h3><p>Een videogesprek is een snelle manier om kennis te maken. Ik gebruik meestal Zoom, maar een ander programma kan ook.</p></div>
+      <div class="card"><h3>Op locatie</h3><p>Ik kom ook graag naar jou toe, zeker als er meer mensen bij het gesprek zijn.</p></div>
+    </div>
+  </div>
+</section>
+<section class="inner"><p class="muted center">Voorneveld Consulting, Vianen · KvK 75477963 · btw NL001963980B78</p></section>
 {% endblock %}

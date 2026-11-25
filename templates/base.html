@@ -4,36 +4,45 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% if noindex %}<meta name="robots" content="noindex, nofollow">
-  {% endif %}<title>{{ title }} · Voorneveld Consulting</title>
+  {% endif %}
+  <title>{{ title }} · Voorneveld Consulting</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="{{ url }}">
+  <meta property="og:title" content="{{ title }} · Voorneveld Consulting">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ url }}">
+  <meta property="og:image" content="{{ domain }}/static/photos/portrait-square.jpg">
+  <link rel="preload" href="{{ root }}static/fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ root }}static/style.css">
   <link rel="icon" type="image/png" href="{{ root }}static/favicon.png">
   <link rel="apple-touch-icon" href="{{ root }}static/icon-180.png">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Gijsbert Voorneveld","jobTitle":"Management consultant","worksFor":{"@type":"Organization","name":"Voorneveld Consulting"},"url":"{{ domain }}/","sameAs":["https://www.linkedin.com/in/gijsbertvoorneveld"]}
+  </script>
 </head>
 <body>
+  <a class="skip" href="#inhoud">Naar de inhoud</a>
   <header class="topbar">
-    <a href="{{ home }}"><img class="logo" src="{{ root }}static/logo.png" alt="Voorneveld Consulting, naar home"></a>
+    <a href="{{ root }}index.html"><img class="logo" src="{{ root }}static/logo.png" width="1437" height="275" alt="Voorneveld Consulting, naar home"></a>
     <nav class="menu" aria-label="Hoofdmenu">
       {% for item in menu %}
       <a href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.label }}</a>
       {% endfor %}
     </nav>
   </header>
-  <main>
+  <main id="inhoud">
 {% block content %}{% endblock %}
 {% if not hide_cta %}
-  <section class="contact">
+  <section class="cta">
     <h2>Zullen we kennismaken?</h2>
-    <p>
-      Heb je een vraagstuk dat vastzit, of een ambitie die je wilt waarmaken? Ik denk graag
-      met je mee. Een eerste gesprek is vrijblijvend.
-    </p>
+    <p>Staat er een verandering voor de deur, of zit er een vast? Ik denk graag met je mee. Een eerste gesprek is vrijblijvend.</p>
     <a class="button" href="{{ root }}contact/index.html">Neem contact op</a>
   </section>
 {% endif %}
   </main>
   <footer class="footer">
     <p>Voorneveld Consulting, Vianen</p>
-    {% if noindex %}<p>Conceptversie</p>{% endif %}
+    <p><a href="{{ root }}privacy/index.html">Privacy</a>{% if noindex %} · Conceptversie{% endif %}</p>
   </footer>
 </body>
 </html>

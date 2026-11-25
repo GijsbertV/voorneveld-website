@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="inner text page-intro">
+  <h1>Cases</h1>
+  <p class="lead">Drie veranderingen, en wat ze opleverden.</p>
+</section>
+
+{% for c in cases %}
+<section class="case{{ " band" if loop.index is odd }}" id="{{ c.id }}">
+  <div class="inner">
+  <p class="eyebrow">{{ c.client }}</p>
+  <h2>{{ c.title }}</h2>
+  <div class="columns">
+    <div>
+      <h3>De situatie</h3>
+      <p>{{ c.situation }}</p>
+    </div>
+    <div>
+      <h3>De aanpak</h3>
+      <p>{{ c.action }}</p>
+    </div>
+    <div>
+      <h3>Het resultaat</h3>
+      <p class="result">{{ c.result }}</p>
+      {% if c.outcome is defined %}
+      <p>{{ c.outcome }}</p>
+      {% endif %}
+    </div>
+  </div>
+  </div>
+</section>
+{% endfor %}
+
+{# Continue the alternation, whatever the number of cases. #}
+<section{% if cases|length is even %} class="band"{% endif %} id="opdrachtgevers">
+  <div class="inner">
+    <h2>Opdrachtgevers</h2>
+    <ul class="logos">
+      {% for c in clients %}
+      <li><img src="{{ root }}static/logos/{{ c.logo }}" alt="{{ c.name }}" loading="lazy"></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}

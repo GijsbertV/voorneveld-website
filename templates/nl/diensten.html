@@ -1,86 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
-  <section class="hero page-intro">
-    <p class="eyebrow"><span class="dot red"></span>Diensten</p>
-    <h1>Waarmee ik je help</h1>
-    <p class="intro">
-      Of het nu gaat om een vastgelopen vraagstuk of een nieuwe ambitie: ik help je van de
-      eerste vraag naar resultaat. Afhankelijk van wat de situatie vraagt, doe ik dat als
-      adviseur of projectleider.</p>
-  </section>
+<section class="inner text page-intro">
+  <h1>Diensten</h1>
+  <p class="lead">Ik realiseer toekomstbestendige en duurzame veranderingen gebaseerd op objectieve en onafhankelijke analyse.</p>
+</section>
 
-  <section class="block" id="resultaat">
-    <span class="number">1</span>
-    <h2>Van vraagstuk of ambitie naar resultaat</h2>
-    <p>
-      Een probleem dat te lang blijft liggen, een nieuwe dienst of een nieuw product, of
-      een fusie die synergie moet opleveren. Ik breng in kaart wat er echt speelt, maak er
-      een helder plan van en zorg dat de eerste stappen ook echt gezet worden.
-    </p>
-    <h3>Zo pak ik het aan</h3>
-    <ol class="steps">
-      <li>We maken de vraag en het doel scherp.</li>
-      <li>Ik verzamel feiten en hoor hoe betrokkenen ernaar kijken.</li>
-      <li>We verkennen de alternatieven en kiezen wat we wel en niet doen.</li>
-      <li>We leggen vast wie wat doet, wanneer en met welk doel.</li>
-    </ol>
-    <div class="card example">
-      <h3>Uit de praktijk: van twee werkdagen naar een halve</h3>
-      <p>
-        Bij een shared service center bekeken we stap voor stap welke controles op beeld- en
-        geluidsmateriaal waarde toevoegden en welke niet. De verwerkingstijd ging van twee
-        werkdagen naar een halve. Zo kwam er meer tijd vrij voor klanten.
-      </p>
+<section class="band">
+  <div class="inner">
+    <h2>Mijn rollen</h2>
+    <div class="cards">
+      <div class="card"><h3>Onderzoeken</h3><p>Samen met alle stakeholders onderzoek ik de situatie en de behoeften en bepaal de kritische succesfactoren.</p></div>
+      <div class="card"><h3>Besluiten</h3><p>Ik bereid besluiten voor en begeleid het proces, bijvoorbeeld een go/no-go of een financiële businesscase.</p></div>
+      <div class="card"><h3>Implementeren</h3><p>Ik begeleid de verandering als projectleider of als coach. Als coach ondersteun ik de eigen medewerkers terwijl ze zelf de verandering doorvoeren.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="block" id="samenwerking">
-    <span class="number">2</span>
-    <h2>Samenwerking die werkt</h2>
-    <p>
-      Workshops en projecten waarin mensen met verschillende achtergronden en niveaus
-      samen tot resultaat komen. Ik ontwerp en begeleid het proces, zodat iedereen kan
-      bijdragen en de uitkomst gedragen wordt.
-    </p>
-    <h3>Zo pak ik het aan</h3>
-    <ol class="steps">
-      <li>We bepalen waar het meeste voordeel te halen is.</li>
-      <li>We onderzoeken het werk samen met de mensen die het doen.</li>
-      <li>Zij voeren de verbeteringen zelf door, dicht op de werkvloer.</li>
-      <li>Ze leren hoe ze daarna zonder mij verder verbeteren.</li>
-    </ol>
-    <div class="card example">
-      <h3>Uit de praktijk: vaker in één keer goed</h3>
-      <p>
-        Voor een internationaal streamingbedrijf onderzochten we met de operationele afdelingen,
-        samen zo'n 300 mensen, ruim 40 processen rond vertalingen. Het aandeel materiaal dat in
-        één keer goed was, steeg van circa 93% naar 98%. De werkdruk daalde sterk en klanten
-        werden veel tevredener.
-      </p>
-    </div>
-  </section>
-
-  <section class="block" id="coaching">
-    <span class="number">3</span>
-    <h2>Coaching en intervisie</h2>
-    <p>
-      Voor professionals en teams die verder willen komen met hun eigen vragen. Met
-      helpende en verdiepende vragen ontdek je zelf wat werkt, individueel of in een
-      intervisiegroep.
-    </p>
-    <h3>Zo werkt intervisie</h3>
-    <p>
-      Een groep van vijf tot zeven mensen komt in vertrouwen steeds twee uur bij elkaar. Per
-      keer brengt één deelnemer een eigen vraagstuk in. De groep helpt met vragen, zodat de
-      inbrenger zelf tot een oplossing komt. Ik begeleid het gesprek en kies een methode die
-      bij het vraagstuk past.
-    </p>
-    <h3>Mijn ervaring</h3>
-    <p>
-      Ik begeleid intervisie voor opdrachtgevers bij de overheid en in de media.
-        Daarnaast doe ik dat al 20 jaar binnen de Ooa, de beroepsvereniging van
-        organisatieadviseurs: 7 tot 10 sessies per jaar, om collega's te helpen
-        professionaliseren.
-    </p>
-  </section>
+<section class="inner">
+  <h2>Mijn diensten</h2>
+  <div class="cards services">
+    {% for s in services %}
+    <details class="card" id="{{ s.id }}">
+      <summary>
+        <h3>{{ s.title }}</h3>
+        <span class="short">{{ s.short }}</span>
+        <span class="more"></span>
+      </summary>
+      <h4>Wanneer</h4>
+      <p>{{ s.when }}</p>
+      <h4>Mijn ervaring</h4>
+      <p>{{ s.experience }}</p>
+      {% if s.case is defined %}
+      <p><a href="{{ root }}cases/index.html#{{ s.case }}">Voorbeeld: {{ cases_by_id[s.case].title }}</a></p>
+      {% endif %}
+    </details>
+    {% endfor %}
+  </div>
+</section>
+<script>
+  // Open the service that a link such as diensten/#fusies points to.
+  function openTarget() {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target && target.tagName === "DETAILS") { target.open = true; target.scrollIntoView(); }
+  }
+  addEventListener("hashchange", openTarget);
+  openTarget();
+</script>
 {% endblock %}
